@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harsh Kumar Dev - Developer & App Creator</title>
+    <meta name="description" content="Harsh Kumar Dev - A passionate student and developer creating innovative applications. Specializing in building tomorrow's digital solutions with cutting-edge technology.">
+    <meta property="og:title" content="Harsh Kumar Dev - Developer & App Creator">
+    <meta property="og:description" content="Passionate student and developer creating innovative applications and digital solutions.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --space-black: hsl(0, 0%, 0%);
+            --space-dark: hsl(0, 0%, 3%);
+            --space-gray: hsl(0, 0%, 8%);
+            --space-blue: hsl(225, 39.3%, 16.7%);
+            --space-pink: hsl(348, 83.3%, 67.1%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(135deg, var(--space-black) 0%, var(--space-dark) 50%, var(--space-blue) 100%);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .font-inter {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, hsl(0, 0%, 100%) 0%, var(--space-pink) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .glow {
+            box-shadow: 0 0 20px hsla(348, 83.3%, 67.1%, 0.3);
+        }
+
+        .typewriter {
+            overflow: hidden;
+            border-right: 3px solid var(--space-pink);
+            white-space: nowrap;
+            width: 0;
+            animation: typewriter 3s steps(40) 1s forwards, blink 1s infinite;
+        }
+
+        .hidden-initial {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .particle {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .particle:nth-child(odd) {
+            animation-delay: -2s;
+        }
+
+        .particle:nth-child(even) {
+            animation-delay: -4s;
+        }
+
+        .main-content {
+            position: relative;
+            z-index: 10;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 0;
+        }
+
+        .hero-section {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .main-title {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #d1d5db;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .decorative-line {
+            width: 6rem;
+            height: 4px;
+            background: linear-gradient(to right, var(--space-blue), var(--space-pink));
+            margin: 0 auto 3rem;
+            border-radius: 2px;
+        }
+
+        .intro-card {
+            background: rgba(20, 20, 20, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            padding: 3rem;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            max-width: 48rem;
+            margin: 0 auto;
+        }
+
+        .intro-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .intro-text {
+            color: #d1d5db;
+            font-size: 1.125rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .intro-subtext {
+            color: #9ca3af;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .contact-section {
+            border-top: 1px solid rgba(59, 130, 246, 0.2);
+            padding-top: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-title {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: #e5e7eb;
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: rgba(59, 130, 246, 0.2);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(59, 130, 246, 0.3);
+        }
+
+        .mail-icon {
+            width: 1.25rem;
+            height: 1.25rem;
+            color: var(--space-pink);
+        }
+
+        .floating-elements {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .float-1 {
+            position: absolute;
+            top: 5rem;
+            left: 2.5rem;
+            width: 1rem;
+            height: 1rem;
+            background: var(--space-pink);
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .float-2 {
+            position: absolute;
+            bottom: 10rem;
+            right: 5rem;
+            width: 0.75rem;
+            height: 0.75rem;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.4;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .float-3 {
+            position: absolute;
+            top: 50%;
+            left: 1.25rem;
+            width: 0.5rem;
+            height: 0.5rem;
+            background: var(--space-blue);
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: float 6s ease-in-out infinite;
+            animation-delay: -1s;
+        }
+
+        .float-4 {
+            position: absolute;
+            bottom: 5rem;
+            left: 25%;
+            width: 0.75rem;
+            height: 0.75rem;
+            background: var(--space-pink);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: pulse 3s ease-in-out infinite;
+            animation-delay: -2s;
+        }
+
+        .footer {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-divider {
+            border-top: 1px solid rgba(59, 130, 246, 0.2);
+            padding-top: 2rem;
+        }
+
+        .footer-text {
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+
+        /* Animations */
+        @keyframes typewriter {
+            0% { width: 0; }
+            100% { width: 100%; }
+        }
+
+        @keyframes blink {
+            0%, 50% { border-color: transparent; }
+            51%, 100% { border-color: var(--space-pink); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .animate-fadeInDelay {
+            animation: fadeInUp 1s ease-out 0.5s forwards;
+        }
+
+        .animate-fadeInDelayLong {
+            animation: fadeInUp 1s ease-out 1s forwards;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.25rem;
+            }
+            
+            .intro-card {
+                padding: 2rem;
+            }
+            
+            .intro-title {
+                font-size: 1.5rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .contact-item {
+                font-size: 0.875rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-title {
+                font-size: 2rem;
+            }
+            
+            .intro-card {
+                padding: 1.5rem;
+            }
+            
+            .intro-text {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Particle Background -->
+    <div id="particles-container" style="position: fixed; inset: 0; z-index: 0;"></div>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Hero Section -->
+            <div class="hero-section">
+                <h1 class="main-title font-inter">
+                    <span class="typewriter text-gradient">Dev Create Apps</span>
+                </h1>
+                
+                <div class="hidden-initial animate-fadeInDelay">
+                    <p class="subtitle">
+                        Building Tomorrow's Digital Solutions
+                    </p>
+                </div>
+                
+                <div class="hidden-initial animate-fadeInDelayLong">
+                    <div class="decorative-line"></div>
+                </div>
+            </div>
+            
+            <!-- Introduction Section -->
+            <div class="hidden-initial animate-fadeInDelayLong">
+                <div class="intro-card glow">
+                    <div>
+                        <h2 class="intro-title font-inter text-gradient">
+                            Harsh Kumar Dev
+                        </h2>
+                        <p class="intro-text">
+                            A passionate student and dedicated developer with an unwavering commitment to crafting innovative applications that solve real-world problems. I specialize in transforming creative ideas into functional, user-centric digital experiences.
+                        </p>
+                        <p class="intro-subtext">
+                            Constantly exploring emerging technologies and development paradigms to stay at the forefront of the ever-evolving digital landscape. My journey is driven by curiosity, creativity, and a genuine desire to make a meaningful impact through code.
+                        </p>
+                    </div>
+                    
+                    <!-- Contact Information -->
+                    <div class="contact-section">
+                        <h3 class="contact-title font-inter">
+                            Let's Connect
+                        </h3>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <svg class="mail-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                </svg>
+                                <span>harshkumardev.business@gmail.com</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Floating Elements -->
+            <div class="floating-elements">
+                <div class="float-1"></div>
+                <div class="float-2"></div>
+                <div class="float-3"></div>
+                <div class="float-4"></div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-divider">
+                <p class="footer-text">
+                    © 2024 Harsh Kumar Dev. Crafted with passion for innovation.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Particle animation system
+        function createParticleSystem() {
+            const container = document.getElementById('particles-container');
+            if (!container) return;
+
+            const particleCount = 50;
+            const particles = [];
+
+            // Create particles
+            for (let i = 0; i < particleCount; i++) {
+                const element = document.createElement('div');
+                element.className = 'particle';
+                
+                const size = Math.random() * 3 + 1;
+                const x = Math.random() * window.innerWidth;
+                const y = Math.random() * window.innerHeight;
+                const opacity = Math.random() * 0.8 + 0.2;
+                const speedX = (Math.random() - 0.5) * 0.5;
+                const speedY = (Math.random() - 0.5) * 0.5;
+                
+                element.style.width = `${size}px`;
+                element.style.height = `${size}px`;
+                element.style.left = `${x}px`;
+                element.style.top = `${y}px`;
+                element.style.opacity = opacity;
+                
+                const duration = Math.random() * 4 + 4;
+                const delay = Math.random() * 2;
+                element.style.animationDuration = `${duration}s`;
+                element.style.animationDelay = `-${delay}s`;
+                
+                container.appendChild(element);
+                
+                particles.push({
+                    x, y, size, opacity, speedX, speedY, element
+                });
+            }
+
+            // Animate particles
+            function animateParticles() {
+                particles.forEach(particle => {
+                    particle.x += particle.speedX;
+                    particle.y += particle.speedY;
+
+                    // Wrap around screen edges
+                    if (particle.x < 0) particle.x = window.innerWidth;
+                    if (particle.x > window.innerWidth) particle.x = 0;
+                    if (particle.y < 0) particle.y = window.innerHeight;
+                    if (particle.y > window.innerHeight) particle.y = 0;
+
+                    particle.element.style.left = `${particle.x}px`;
+                    particle.element.style.top = `${particle.y}px`;
+                });
+            }
+
+            setInterval(animateParticles, 50);
+        }
+
+        // Intersection Observer for animations
+        function setupAnimations() {
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.remove('hidden-initial');
+                        }
+                    });
+                },
+                { threshold: 0.1 }
+            );
+
+            document.querySelectorAll('.hidden-initial').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticleSystem();
+            setupAnimations();
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            // Recreate particle system on resize
+            const container = document.getElementById('particles-container');
+            if (container) {
+                container.innerHTML = '';
+                createParticleSystem();
+            }
+        });
+    </script>
+</body>
+</html>
